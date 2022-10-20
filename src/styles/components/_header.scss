@@ -1,0 +1,91 @@
+@use '../utils/' as utils;
+
+.pen {
+  display: grid;
+  padding: 0.30em;
+  background-color: var(--color-header);
+  color: var(--color-text);
+  grid-template-columns: 1fr;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: 0.35em;
+
+  @include utils.breakpoint(medium) {
+    padding: .5em;
+    gap: 0.45em;
+  }
+}
+
+.pen__details {
+  display: flex;
+  align-items: center;
+
+  & .pen__logo {
+    margin-right: 0.25em;
+    cursor: pointer;
+
+    & figure {
+      margin: 0 auto;
+      width: 70%;
+      min-width: 20px;
+      max-width: 35px;
+
+      @include utils.breakpoint(medium) {
+        width: 85%;
+      }
+    }
+  }
+
+  & .pen__info {
+    line-height: 1rem;
+    min-width: 155px;
+
+    & .pen__title {
+      display: flex;
+      align-items: center;
+
+      & .pen__title-text {
+        font-size: 1rem;
+        font-weight: 500;
+      }
+
+      & .pen__pencil-icon svg {
+        min-width: 10px;
+        max-height: 15px;
+        cursor: pointer;
+      }
+    }
+
+    & .pen__author {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.pen__actions {
+  display: flex;
+  gap: .45em;
+}
+
+.pen__actions>button:first-child {
+  @include utils.breakpoint(medium) {
+    display: none;
+  }
+}
+
+.pen__actions>button.hidden {
+  display: none;
+
+  @include utils.breakpoint(medium) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+    font-size: 0.85rem;
+  }
+}
+
+.pen>img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

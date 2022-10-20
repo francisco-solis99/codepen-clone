@@ -1,1 +1,8 @@
 @use 'base';
+@use 'components';
+@use 'utils';
+
+
+#codepen {
+  min-width: 310px;
+}
