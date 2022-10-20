@@ -1,3 +1,5 @@
+@use '../utils/' as utils;
+
 .button {
   border: 0;
   padding: .5em;
@@ -5,12 +7,17 @@
   color: var(--color-text);
   border-radius: 5px;
   cursor: pointer;
+  font-size: 0.75rem;
+
+  @include utils.breakpoint(medium) {
+    font-size: 1rem;
+  }
 }
 
 .button__icon {
   & img {
-    min-width: 10px;
-    max-width: 18px;
+    width: 16px;
+    height: 18px;
   }
 
   &:hover {
@@ -20,15 +27,15 @@
 }
 
 
+
+
+// Special or specific buttons
 .button__icon,
 .button__user {
+  font-size: 1rem;
   max-width: 2.15em;
 }
 
 .button__user {
   padding: 0;
-}
-
-.button__preview {
-  transform: rotate(180deg);
 }
