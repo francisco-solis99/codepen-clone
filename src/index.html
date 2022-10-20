@@ -39,14 +39,16 @@
         <button class="button button__icon button__preview" aria-label="toggle actions">
           <img src="./arrow.svg" alt="Arrow icon to open a menu" aria-label="White arrow line icon">
         </button>
-        <button class="hidden pen__save button" aria-hidden="true">
-          <img src="./cloud.svg" alt="Save icon" aria-label="White cloud icon">
-          <span>Save</span>
-        </button>
-        <button class="hidden pen__settings button" aria-hidden="true">
-          <img src="./settings.svg" alt="Settings icon" aria-label="White nut icon">
-          <span>Settings</span>
-        </button>
+        <div class="options">
+          <button class="hidden pen__save button" aria-hidden="true">
+            <img src="./cloud.svg" alt="Save icon" aria-label="White cloud icon">
+            <span>Save</span>
+          </button>
+          <button class="hidden pen__settings button" aria-hidden="true">
+            <img src="./settings.svg" alt="Settings icon" aria-label="White nut icon">
+            <span>Settings</span>
+          </button>
+        </div>
       </div>
       <button class="button button__icon">
         <img src="./preview.svg" alt="Preview icon" aria-label="White layout icon">
@@ -65,9 +67,11 @@
         <button class="button hidden" aria-hidden="true">Console</button>
         <button class="button hidden" aria-hidden="true">Assets</button>
       </div>
-      <button class="button button__icon button__tools" aria-label="toggle tools">
-        <img src="./arrow.svg" alt="Arrow icon" aria-label="White arrow icon">
-      </button>
+      <div class="container">
+        <button class="button button__icon button__tools" aria-label="toggle tools">
+          <img src="./arrow.svg" alt="Arrow icon" aria-label="White arrow icon">
+        </button>
+      </div>
     </footer>
   </div>
 </body>

@@ -9,6 +9,7 @@
   grid-auto-flow: column;
   align-items: center;
   gap: 0.35em;
+  position: relative;
 
   @include utils.breakpoint(medium) {
     padding: .5em;
@@ -65,22 +66,72 @@
 .pen__actions {
   display: flex;
   gap: .45em;
-}
 
-.pen__actions>button:first-child {
-  @include utils.breakpoint(medium) {
-    display: none;
+  & .button__preview {
+    @include utils.breakpoint(medium) {
+      display: none;
+    }
+
+    & img {
+      will-change: transform;
+      transition: transform 250ms ease-in;
+    }
+
+    &.rotate img {
+      transform: rotate(180deg);
+    }
   }
-}
 
-.pen__actions>button.hidden {
-  display: none;
+  & .options {
+    transform: scale(0);
+    opacity: 0;
+    display: grid;
+    grid-template-rows: 20% 70%;
+    width: 180px;
+    height: 100px;
+    padding: 0.25em;
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    top: 42px;
+    background-color: #1d1e25;
+    border-radius: 6px;
+    box-shadow: 0 2rem 4rem #09090b;
+    will-change: transform;
+    transition: transform 300ms ease-in;
 
-  @include utils.breakpoint(medium) {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25em;
-    font-size: 0.85rem;
+    @include utils.breakpoint(medium) {
+      transform: scale(1);
+      opacity: 1;
+      display: block;
+      position: initial;
+      box-shadow: none;
+      width: auto;
+      height: auto;
+    }
+
+    & button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25em;
+      font-size: 0.85rem;
+    }
+  }
+
+  & .options.active {
+    transform: scale(1);
+    opacity: 1;
+    transition: all 300ms ease-out;
+
+    & button {
+      background-color: transparent;
+      font-size: 0.75rem;
+      border-radius: 0;
+    }
+
+    & button:last-child {
+      border-bottom: 0.5px solid rgba(128, 128, 128, 0.25);
+    }
   }
 }
 

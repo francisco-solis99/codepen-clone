@@ -1,21 +1,33 @@
 @use '../utils/' as utils;
 
 .footer {
-  padding: 0.25em .5em;
   margin-top: 2em;
-  background-color: var(--color-black);
+  position: relative;
+
+  & .container {
+    padding: 0.25em .5em;
+    background-color: var(--color-black);
+
+    @include utils.breakpoint(medium) {
+      display: none;
+    }
+  }
 
   & .tools {
-    display: none;
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+    visibility: hidden;
     opacity: 0;
     transition: all ease-in 250ms;
+    padding: 0.25em .5em;
     background-color: var(--color-blue-black);
 
     @include utils.breakpoint(medium) {
-      display: block;
       opacity: 1;
+      visibility: visible;
       width: 100%;
-      background-color: transparent;
+      background-color: var(--color-black);
     }
 
     & button {
@@ -30,8 +42,9 @@
   }
 
   & .tools.active {
-    display: block;
+    // display: block;
     opacity: 1;
+    visibility: visible;
   }
 
   .button__tools {
@@ -43,12 +56,15 @@
     align-items: center;
     justify-content: center;
 
+
     & img {
       width: 13px;
+      will-change: transform;
+      transition: transform ease-in-out 250ms;
     }
+  }
 
-    @include utils.breakpoint(medium) {
-      display: none;
-    }
+  .button__tools.rotate img {
+    transform: rotate(180deg);
   }
 }
