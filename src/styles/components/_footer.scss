@@ -1,8 +1,9 @@
 @use '../utils/' as utils;
 
 .footer {
-  margin-top: 2em;
   position: relative;
+  display: flex;
+  align-items: center;
 
   & .container {
     padding: 0.25em .5em;
@@ -14,13 +15,18 @@
   }
 
   & .tools {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -26px;
     display: flex;
     align-items: center;
+    padding: 0.25em .5em;
     gap: 0.25em;
     visibility: hidden;
     opacity: 0;
-    transition: all ease-in 250ms;
-    padding: 0.25em .5em;
+    will-change: opacity;
+    transition: opacity ease-in 250ms;
     background-color: var(--color-blue-black);
 
     @include utils.breakpoint(medium) {
@@ -28,6 +34,8 @@
       visibility: visible;
       width: 100%;
       background-color: var(--color-black);
+      position: initial;
+      height: 100%;
     }
 
     & button {
@@ -42,7 +50,6 @@
   }
 
   & .tools.active {
-    // display: block;
     opacity: 1;
     visibility: visible;
   }

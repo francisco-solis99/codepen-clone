@@ -5,6 +5,37 @@
 
 #codepen {
   display: grid;
-  grid-template-rows: auto 1fr 1fr auto;
+  // grid-template-rows: auto 1fr 1fr auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 9vh 42vh 42vh 7vh;
   min-width: 310px;
+  height: 100vh;
+}
+
+
+.pen {
+  grid-column: 1 / -1;
+}
+
+.code {
+  grid-column: 1 / -1;
+
+  @include utils.breakpoint(small) {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+  }
+}
+
+.preview {
+  grid-column: 1 / -1;
+  background-color: white;
+
+  @include utils.breakpoint(small) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+  }
+}
+
+.footer {
+  grid-column: 1 / -1;
 }
