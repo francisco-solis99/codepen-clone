@@ -1,3 +1,5 @@
+@use '../utils/' as utils;
+
 .code {
   & .container__code {
     border-top: 1px solid var(--color-buttons);
@@ -6,6 +8,12 @@
     grid-template-rows: 40px auto;
     height: 100%;
 
+    @include utils.breakpoint(medium) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 0 1em;
+    }
+
     & .code__header {
       padding: 0.25em 0.25em 0.1em 0.25em;
       display: grid;
@@ -13,6 +21,10 @@
       grid-template-columns: repeat(auto-fill, minmax(min-content, 3.25em));
       background-color: var(--color-blue-black);
       gap: .15em;
+
+      @include utils.breakpoint(medium) {
+        display: none;
+      }
 
       & .code__title {
         font-size: .85rem;
@@ -44,8 +56,37 @@
     & .code__tech {
       display: none;
 
-      .code__title {
+      @include utils.breakpoint(medium) {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        background-color: var(--color-blue-black);
+      }
+
+      & .code__title-wrapper {
         display: none;
+
+        @include utils.breakpoint(medium) {
+          display: block;
+          width: calc(100% - 2px);
+          background-color: var(--color-black);
+        }
+
+        .code__title {
+          display: inline-flex;
+          height: 100%;
+          padding: 0 .5em;
+          font-size: 1rem;
+          font-weight: 500;
+          background-color: var(--color-blue-black);
+          border-top: 1px solid var(--color-buttons);
+          color: var(--color-gray);
+        }
+
+        .code__icon {
+          width: 17px;
+          height: 17px;
+          margin-right: 0.25em;
+        }
       }
 
       & .code__space {
@@ -60,5 +101,23 @@
     & .code__tech.active {
       display: block;
     }
+
+    // & .code__html {
+    //   @include utils.breakpoint(medium) {
+    //     grid-column: 1 / -1;
+    //   }
+    // }
+
+    // & .code__css {
+    //   @include utils.breakpoint(medium) {
+    //     grid-column: 1 / 2;
+    //   }
+    // }
+
+    // & .code__js {
+    //   @include utils.breakpoint(medium) {
+    //     grid-column: 1 / -1;
+    //   }
+    // }
   }
 }

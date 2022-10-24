@@ -18,7 +18,7 @@ buttonTools.addEventListener('click', () => {
 
 
 // Code editors buttons
-// console.log(screen.width);
+// console.log(screen.width); => just with the width < 768px
 const codeHeader = document.querySelector('.code__header');
 const buttonsCode = document.querySelectorAll('.code__header .code__title');
 const spaces = document.querySelectorAll('.code__tech');
