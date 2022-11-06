@@ -2,7 +2,7 @@
 A static clone of one of my favorite tools for make code online, codepen
 
 ## Demo 🚀
-Right [here](https://francisco-solis99.github.io/codepen-clone/) you can see the demo
+Right [here](https://francisco-solis99.github.io/codepen-clone/) you can see the demo for mobile or dekstop view
 
 ## Tech Stack 👌
 - HTML
